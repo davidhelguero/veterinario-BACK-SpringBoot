@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -40,5 +41,27 @@ public class AnimalServiceImpl implements AnimalService{
         animal.setEstado(EstadoAnimal.ACTIVO);
 
         animalRepository.save(animal);
+    }
+
+    @Override
+    public void deleteAnimal(Integer id) {
+        Animal animal = getAnimalById(id);
+        animal.setEstado(EstadoAnimal.INACTIVO);
+        animalRepository.save(animal);
+    }
+
+    @Override
+    public void editAnimal(AnimalRequestDto dto, Integer id){
+        Animal animal = getAnimalById(id);
+        animal.setNombre(dto.getNombre());
+        animal.setPeso(dto.getPeso());
+        animalRepository.save(animal);
+    }
+
+    private Animal getAnimalById(Integer id){
+        Optional<Animal> animal = animalRepository.findById(id);
+        if(!animal.isPresent())
+            throw new NullPointerException();
+        return animal.get();
     }
 }

@@ -10,4 +10,8 @@ public interface AnimalService {
     List<AnimalResponseDto> getAnimales();
 
     void addAnimal(AnimalRequestDto dto);
+
+    void deleteAnimal(Integer id);
+
+    void editAnimal(AnimalRequestDto dto, Integer id);
 }

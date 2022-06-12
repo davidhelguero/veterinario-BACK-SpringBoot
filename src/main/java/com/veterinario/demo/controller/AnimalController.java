@@ -32,4 +32,10 @@ public class AnimalController {
     public void addAnimal(@Valid @RequestBody AnimalRequestDto requestDto){
         animalService.addAnimal(requestDto);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteAnimal(@PathVariable("id") Integer id){animalService.deleteAnimal(id);}
+
+    @PostMapping("/animal/edit")
+    public void editAnimal(@Valid @RequestBody AnimalRequestDto requestDto, @RequestParam Integer id) {animalService.editAnimal(requestDto, id);}
 }
