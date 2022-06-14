@@ -20,4 +20,5 @@ public class AnimalResponseDto {
     private float peso;
     private LocalDate fechaCreacion;
     private EstadoAnimal estado;
+    private String imagen;
 }

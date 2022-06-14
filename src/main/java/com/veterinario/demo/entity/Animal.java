@@ -24,4 +24,5 @@ public class Animal {
     private EstadoAnimal estado;
     @Column(name = "fecha_creacion")
     private LocalDate fechaCreacion;
+    private String imagen;
 }

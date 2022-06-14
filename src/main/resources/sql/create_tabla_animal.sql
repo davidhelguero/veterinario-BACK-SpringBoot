@@ -8,5 +8,6 @@ CREATE TABLE `animal` (
     `peso` float NOT NULL,
     `fecha_creacion` date NOT NULL,
     `estado` VARCHAR(45) NOT NULL,
+    `imagen` VARCHAR(90) NOT NULL,
     PRIMARY KEY(`id`)
 );
