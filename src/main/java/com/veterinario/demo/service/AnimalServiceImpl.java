@@ -58,7 +58,8 @@ public class AnimalServiceImpl implements AnimalService{
         animalRepository.save(animal);
     }
 
-    private Animal getAnimalById(Integer id){
+    @Override
+    public Animal getAnimalById(Integer id){
         Optional<Animal> animal = animalRepository.findById(id);
         if(!animal.isPresent())
             throw new NullPointerException();

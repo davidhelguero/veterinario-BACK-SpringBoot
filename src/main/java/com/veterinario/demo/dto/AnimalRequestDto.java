@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @Builder
 @JsonNaming
-public class AnimalRequestDto {
+public class  AnimalRequestDto {
     @NotEmpty(message = "Por favor ingrese un nombre")
     private String nombre;
     @NotNull(message = "Por favor ingrese el peso")

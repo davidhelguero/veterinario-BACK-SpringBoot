@@ -33,7 +33,7 @@ public class AnimalController {
         animalService.addAnimal(requestDto);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/animal/inhabilitar/{id}")
     public void deleteAnimal(@PathVariable("id") Integer id){animalService.deleteAnimal(id);}
 
     @PostMapping("/animal/edit")
