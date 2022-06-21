@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Table(name = "persona")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
