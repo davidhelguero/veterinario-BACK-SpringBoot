@@ -37,7 +37,12 @@ public class PropietarioController {
     }
 
     @DeleteMapping("/propietario/inhabilitar/{id}")
-    public void editPropietario(@PathVariable("id") Integer id){
+    public void inactivarPropietario(@PathVariable("id") Integer id){
         propietarioService.deletePropietario(id);
+    }
+
+    @GetMapping("/propietario")
+    public PropietarioResponseDto getPropietariosById(@RequestParam Integer id){
+        return propietarioService.getPropietarioByIdResponse(id);
     }
 }

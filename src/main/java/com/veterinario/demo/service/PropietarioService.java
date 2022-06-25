@@ -18,4 +18,6 @@ public interface PropietarioService {
 
     Propietario getPropietarioById(Integer id);
 
+    PropietarioResponseDto getPropietarioByIdResponse(Integer id);
+
 }

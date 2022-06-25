@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -28,8 +29,14 @@ public class PropietarioServiceImpl implements PropietarioService{
     public List<PropietarioResponseDto> getPropietarios() {
 
         List<Propietario> propietarios = propietarioRepository.findAll();
+        List<Propietario> propietariosActivos = new ArrayList<>();
 
-        return propietarios.stream().parallel()
+        for (Propietario prop: propietarios) {
+            if(prop.isEstado())
+                propietariosActivos.add(prop);
+        }
+
+        return propietariosActivos.stream().parallel()
                 .map(propietario -> modelMapper.map(propietario, PropietarioResponseDto.class))
                 .collect(Collectors.toList());
     }
@@ -48,6 +55,7 @@ public class PropietarioServiceImpl implements PropietarioService{
         Propietario propietario = getPropietarioById(id);
         Propietario actualizado = modelMapper.map(dto, Propietario.class);
         actualizado.setId(propietario.getId());
+        actualizado.setEstado(true);
         propietarioRepository.save(actualizado);
     }
 
@@ -65,5 +73,11 @@ public class PropietarioServiceImpl implements PropietarioService{
         if(!propietario.isPresent())
             throw new NullPointerException();
         return propietario.get();
+    }
+
+    @Override
+    public PropietarioResponseDto getPropietarioByIdResponse(Integer id) {
+        Propietario propietario = getPropietarioById(id);
+        return modelMapper.map(propietario, PropietarioResponseDto.class);
     }
 }
