@@ -41,7 +41,10 @@ public class VeterinarioController {
         veterinarioService.deleteVeterinario(id);
     }
 
-
+    @GetMapping("/veterinario")
+    public VeterinarioResponseDto getVeterinarioById(@RequestParam Integer id){
+        return veterinarioService.getVeterinarioByIdResponse(id);
+    }
 
 
 }

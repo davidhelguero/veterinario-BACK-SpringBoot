@@ -17,4 +17,6 @@ public interface VeterinarioService {
     void deleteVeterinario(Integer id);
 
     Veterinario getVeterinarioById(Integer id);
+
+    VeterinarioResponseDto getVeterinarioByIdResponse(Integer id);
 }

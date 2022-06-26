@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -28,8 +29,14 @@ public class VeterinarioServiceImpl implements VeterinarioService{
     public List<VeterinarioResponseDto> getVeterinarios() {
 
         List<Veterinario> veterinarios = veterinarioRepository.findAll();
+        List<Veterinario> veterinariosActivos = new ArrayList<>();
 
-        return veterinarios.stream().parallel()
+        for(Veterinario vet : veterinarios){
+            if(vet.isEstado())
+                veterinariosActivos.add(vet);
+        }
+
+        return veterinariosActivos.stream().parallel()
                 .map(veterinario -> modelMapper.map(veterinario, VeterinarioResponseDto.class))
                 .collect(Collectors.toList());
 
@@ -49,6 +56,7 @@ public class VeterinarioServiceImpl implements VeterinarioService{
         Veterinario veterinario = getVeterinarioById(id);
         Veterinario actualizado = modelMapper.map(dto, Veterinario.class);
         actualizado.setId(veterinario.getId());
+        actualizado.setEstado(true);
         veterinarioRepository.save(actualizado);
     }
 
@@ -67,5 +75,11 @@ public class VeterinarioServiceImpl implements VeterinarioService{
         if(!veterinario.isPresent())
             throw new NullPointerException();
         return veterinario.get();
+    }
+
+    @Override
+    public VeterinarioResponseDto getVeterinarioByIdResponse(Integer id) {
+        Veterinario veterinario = getVeterinarioById(id);
+        return modelMapper.map(veterinario, VeterinarioResponseDto.class);
     }
 }
