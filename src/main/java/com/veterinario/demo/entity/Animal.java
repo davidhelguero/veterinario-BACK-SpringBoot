@@ -28,6 +28,6 @@ public class Animal {
     @JoinColumn(name = "id_propietario", referencedColumnName = "id")
     private Propietario propietario;
     @ManyToOne
-    @JoinColumn(name = "id_tipoAnimal", referencedColumnName = "id")
+    @JoinColumn(name = "id_tipoanimal", referencedColumnName = "id")
     private TipoAnimal tipo;
 }

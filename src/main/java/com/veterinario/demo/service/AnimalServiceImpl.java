@@ -3,7 +3,9 @@ package com.veterinario.demo.service;
 import com.veterinario.demo.constants.EstadoAnimal;
 import com.veterinario.demo.dto.AnimalRequestDto;
 import com.veterinario.demo.dto.AnimalResponseDto;
+import com.veterinario.demo.dto.TipoAnimalResponseDto;
 import com.veterinario.demo.entity.Animal;
+import com.veterinario.demo.entity.TipoAnimal;
 import com.veterinario.demo.repository.AnimalRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +20,13 @@ public class AnimalServiceImpl implements AnimalService{
 
     private final AnimalRepository animalRepository;
     private final ModelMapper modelMapper;
+    private final TipoAnimalService tipoAnimalService;
 
     @Autowired
-    public AnimalServiceImpl(AnimalRepository animalRepository, ModelMapper modelMapper){
+    public AnimalServiceImpl(AnimalRepository animalRepository, ModelMapper modelMapper, TipoAnimalService tipoAnimalService){
         this.animalRepository = animalRepository;
         this.modelMapper = modelMapper;
+        this.tipoAnimalService = tipoAnimalService;
     }
 
     @Override
@@ -36,11 +40,22 @@ public class AnimalServiceImpl implements AnimalService{
 
     @Override
     public void addAnimal(AnimalRequestDto dto) {
+
         Animal animal = modelMapper.map(dto, Animal.class);
+
         animal.setFechaCreacion(LocalDate.now());
         animal.setEstado(EstadoAnimal.ACTIVO);
+        TipoAnimal tipoAnimal = getTipoAnimal(dto);
+        animal.setTipo(tipoAnimal);
 
         animalRepository.save(animal);
+    }
+
+    private TipoAnimal getTipoAnimal(AnimalRequestDto dto) {
+        Integer id = dto.getId_tipoAnimal();
+        TipoAnimalResponseDto tipoAnimalResponseDto = tipoAnimalService.getTipoAnimalById(id);
+        TipoAnimal tipoAnimal = modelMapper.map(tipoAnimalResponseDto, TipoAnimal.class);
+        return tipoAnimal;
     }
 
     @Override

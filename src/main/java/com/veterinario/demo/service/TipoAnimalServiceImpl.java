@@ -36,7 +36,7 @@ public class TipoAnimalServiceImpl implements TipoAnimalService{
     public TipoAnimalResponseDto getTipoAnimalById(Integer id) {
         Optional<TipoAnimal> tipoAnimal = tipoAnimalRepository.findById(id);
         if(!tipoAnimal.isPresent())
-            throw new NullPointerException();
+            throw new NullPointerException("No existe");
         return modelMapper.map(tipoAnimal.get(),TipoAnimalResponseDto.class);
     }
 }
