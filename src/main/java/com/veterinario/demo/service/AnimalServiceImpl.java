@@ -45,17 +45,10 @@ public class AnimalServiceImpl implements AnimalService{
 
         animal.setFechaCreacion(LocalDate.now());
         animal.setEstado(EstadoAnimal.ACTIVO);
-        TipoAnimal tipoAnimal = getTipoAnimal(dto);
+        TipoAnimal tipoAnimal = tipoAnimalService.getTipoAnimalById(dto.getId_tipoAnimal());
         animal.setTipo(tipoAnimal);
 
         animalRepository.save(animal);
-    }
-
-    private TipoAnimal getTipoAnimal(AnimalRequestDto dto) {
-        Integer id = dto.getId_tipoAnimal();
-        TipoAnimalResponseDto tipoAnimalResponseDto = tipoAnimalService.getTipoAnimalById(id);
-        TipoAnimal tipoAnimal = modelMapper.map(tipoAnimalResponseDto, TipoAnimal.class);
-        return tipoAnimal;
     }
 
     @Override

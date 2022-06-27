@@ -33,7 +33,15 @@ public class TipoAnimalServiceImpl implements TipoAnimalService{
     }
 
     @Override
-    public TipoAnimalResponseDto getTipoAnimalById(Integer id) {
+    public TipoAnimal getTipoAnimalById(Integer id) {
+        Optional<TipoAnimal> tipoAnimal = tipoAnimalRepository.findById(id);
+        if(!tipoAnimal.isPresent())
+            throw new NullPointerException("No existe");
+        return tipoAnimal.get();
+    }
+
+    @Override
+    public TipoAnimalResponseDto getTipoAnimalByIdResponse(Integer id) {
         Optional<TipoAnimal> tipoAnimal = tipoAnimalRepository.findById(id);
         if(!tipoAnimal.isPresent())
             throw new NullPointerException("No existe");

@@ -11,5 +11,7 @@ public interface TipoAnimalService {
 
     List<TipoAnimalResponseDto> getTiposAnimales();
 
-    TipoAnimalResponseDto getTipoAnimalById(Integer id);
+    TipoAnimal getTipoAnimalById(Integer id);
+
+    TipoAnimalResponseDto getTipoAnimalByIdResponse(Integer id);
 }

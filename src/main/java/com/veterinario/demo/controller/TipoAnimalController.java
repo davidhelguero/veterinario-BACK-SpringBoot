@@ -29,6 +29,6 @@ public class TipoAnimalController {
 
     @GetMapping("/tipoAnimal/{id}")
     TipoAnimalResponseDto getTipoAnimalById(@PathVariable("id") Integer id){
-        return tipoAnimalService.getTipoAnimalById(id);
+        return tipoAnimalService.getTipoAnimalByIdResponse(id);
     }
 }
