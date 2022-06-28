@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Setter
@@ -12,7 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Table(name = "persona")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Persona {
+public abstract class Persona implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

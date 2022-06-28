@@ -5,6 +5,7 @@ import com.veterinario.demo.dto.AnimalRequestDto;
 import com.veterinario.demo.dto.AnimalResponseDto;
 import com.veterinario.demo.dto.TipoAnimalResponseDto;
 import com.veterinario.demo.entity.Animal;
+import com.veterinario.demo.entity.Propietario;
 import com.veterinario.demo.entity.TipoAnimal;
 import com.veterinario.demo.repository.AnimalRepository;
 import org.modelmapper.ModelMapper;
@@ -21,12 +22,14 @@ public class AnimalServiceImpl implements AnimalService{
     private final AnimalRepository animalRepository;
     private final ModelMapper modelMapper;
     private final TipoAnimalService tipoAnimalService;
+    private final PropietarioService propietarioService;
 
     @Autowired
-    public AnimalServiceImpl(AnimalRepository animalRepository, ModelMapper modelMapper, TipoAnimalService tipoAnimalService){
+    public AnimalServiceImpl(AnimalRepository animalRepository, ModelMapper modelMapper, TipoAnimalService tipoAnimalService, PropietarioService propietarioService){
         this.animalRepository = animalRepository;
         this.modelMapper = modelMapper;
         this.tipoAnimalService = tipoAnimalService;
+        this.propietarioService = propietarioService;
     }
 
     @Override
@@ -47,6 +50,8 @@ public class AnimalServiceImpl implements AnimalService{
         animal.setEstado(EstadoAnimal.ACTIVO);
         TipoAnimal tipoAnimal = tipoAnimalService.getTipoAnimalById(dto.getId_tipoAnimal());
         animal.setTipo(tipoAnimal);
+        Propietario propietario = propietarioService.getPropietarioById(dto.getId_propietario());
+        animal.setPropietario(propietario);
 
         animalRepository.save(animal);
     }
@@ -63,6 +68,10 @@ public class AnimalServiceImpl implements AnimalService{
         Animal animal = getAnimalById(id);
         animal.setNombre(dto.getNombre());
         animal.setPeso(dto.getPeso());
+        TipoAnimal tipoAnimal = tipoAnimalService.getTipoAnimalById(dto.getId_tipoAnimal());
+        animal.setTipo(tipoAnimal);
+        Propietario propietario = propietarioService.getPropietarioById(dto.getId_propietario());
+        animal.setPropietario(propietario);
         animalRepository.save(animal);
     }
 
@@ -70,7 +79,7 @@ public class AnimalServiceImpl implements AnimalService{
     public Animal getAnimalById(Integer id){
         Optional<Animal> animal = animalRepository.findById(id);
         if(!animal.isPresent())
-            throw new NullPointerException();
+            throw new NullPointerException("El animal no existe");
         return animal.get();
     }
 }

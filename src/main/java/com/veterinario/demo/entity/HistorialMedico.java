@@ -5,15 +5,27 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.LocalDate;
 
-/*@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "historial_medico")*/
+@Entity
+@Table(name = "historial_medico")
 public class HistorialMedico {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private LocalDate fecha;
+    private String descripcion;
+    @OneToOne
+    @JoinColumn(name = "id_animal", referencedColumnName = "id")
+    private Animal animal;
+    @ManyToOne
+    @JoinColumn(name = "id_veterinario", referencedColumnName = "persona_id")
+    private Veterinario veterinario;
+    private boolean estado;
 }

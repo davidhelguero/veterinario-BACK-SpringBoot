@@ -18,4 +18,6 @@ public class  AnimalRequestDto {
     private float peso;
     @NotNull(message = "Por favor seleccione un tipo")
     private int id_tipoAnimal;
+    @NotNull(message = "Por favor ingrese un propietario")
+    private int id_propietario;
 }

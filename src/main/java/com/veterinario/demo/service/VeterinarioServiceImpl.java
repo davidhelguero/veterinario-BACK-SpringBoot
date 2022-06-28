@@ -73,7 +73,7 @@ public class VeterinarioServiceImpl implements VeterinarioService{
 
         Optional<Veterinario> veterinario = veterinarioRepository.findById(id);
         if(!veterinario.isPresent())
-            throw new NullPointerException();
+            throw new NullPointerException("El veterinario no existe");
         return veterinario.get();
     }
 

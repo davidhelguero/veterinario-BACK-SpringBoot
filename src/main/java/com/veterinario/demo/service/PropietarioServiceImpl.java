@@ -71,7 +71,7 @@ public class PropietarioServiceImpl implements PropietarioService{
 
         Optional<Propietario> propietario = propietarioRepository.findById(id);
         if(!propietario.isPresent())
-            throw new NullPointerException();
+            throw new NullPointerException("El propietario no existe");
         return propietario.get();
     }
 
