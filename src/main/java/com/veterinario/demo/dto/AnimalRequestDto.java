@@ -3,6 +3,7 @@ package com.veterinario.demo.dto;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.*;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -15,6 +16,7 @@ public class  AnimalRequestDto {
     @NotEmpty(message = "Por favor ingrese un nombre")
     private String nombre;
     @NotNull(message = "Por favor ingrese el peso")
+    @Min(1)
     private float peso;
     @NotNull(message = "Por favor seleccione un tipo")
     private int id_tipoAnimal;
