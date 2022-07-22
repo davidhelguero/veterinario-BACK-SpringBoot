@@ -13,18 +13,19 @@ import org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.annotation.Resource;
 
-@SpringBootApplication
+//@SpringBootApplication
+//@EnableJpaRepositories(basePackages = "com.veterinario.demo.repository.AnimalRepository", entityManagerFactoryRef = "sessionFactory")
 
-//@ComponentScan({"com.veterinario"})
 //@ComponentScan(basePackages = {"com.veterinario"})
-//@EnableJpaRepositories("com.veterinario.demo.repository.AnimalRepository")
 
-//@SpringBootApplication(scanBasePackages = {"com.service"} , exclude = {JpaRepositoriesAutoConfiguration.class})
+
+@SpringBootApplication(scanBasePackages = {"service","com.veterinario.demo.service.FileService"} , exclude = {JpaRepositoriesAutoConfiguration.class})
 
 //@SpringBootApplication(exclude = JpaRepositoriesAutoConfiguration.class)
 //@ComponentScan({"com.veterinario.demo.service"})
@@ -42,17 +43,16 @@ import javax.annotation.Resource;
 //@EnableAutoConfiguration
 public class DemoApplication  implements CommandLineRunner {
 
-	@Resource
-	FileService fileService;
-
+	//@Resource
+	//FileService fileService;
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
 	@Override
 	public void run(String... arg) throws Exception{
-		fileService.deleteAll();
-		fileService.init();
+		//fileService.deleteAll();
+		//fileService.init();
 	}
 
 	/* En caso que tenga problema con los cors agregar este Bean */

@@ -1,4 +1,4 @@
-#spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 #spring.datasource.url=jdbc:mysql://uystlhkfv6jfl9ov:pNHc07ppslG1pMR94KSn@blainmpxpdzpdvknrb87-mysql.services.clever-cloud.com:3306/blainmpxpdzpdvknrb87
 spring.datasource.url=jdbc:mysql://blainmpxpdzpdvknrb87-mysql.services.clever-cloud.com:3306/blainmpxpdzpdvknrb87
 #useSSL=false&allowPublicKeyRetrieval=true
@@ -8,5 +8,5 @@ spring.datasource.password=pNHc07ppslG1pMR94KSn
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 spring.jpa.database-platform=org.hibernate.dialect.MySQL5Dialect
 spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
+#spring.jpa.show-sql=true
 
