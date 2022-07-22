@@ -25,8 +25,9 @@ import javax.annotation.Resource;
 //@ComponentScan(basePackages = {"com.veterinario"})
 
 
-//@SpringBootApplication(scanBasePackages = {"service","com.veterinario.demo.service.FileService"} , exclude = {DataSourceAutoConfiguration.class,JpaRepositoriesAutoConfiguration.class})
-//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+//@SpringBootApplication(scanBasePackages = {"service"} , exclude = {JpaRepositoriesAutoConfiguration.class})
+//@SpringBootApplication(scanBasePackages = {"service"})
+//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class, JpaRepositoriesAutoConfiguration.class})
 
 
 //@SpringBootApplication(exclude = JpaRepositoriesAutoConfiguration.class)
