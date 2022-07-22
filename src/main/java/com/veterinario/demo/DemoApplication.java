@@ -25,7 +25,7 @@ import javax.annotation.Resource;
 //@ComponentScan(basePackages = {"com.veterinario"})
 
 
-//@SpringBootApplication(scanBasePackages = {"service","com.veterinario.demo.service.FileService"} , exclude = {DataSourceAutoConfiguration.class,JpaRepositoriesAutoConfiguration.class})
+@SpringBootApplication(scanBasePackages = {"service","com.veterinario.demo.service.FileService"} , exclude = {DataSourceAutoConfiguration.class,JpaRepositoriesAutoConfiguration.class})
 
 //@SpringBootApplication(exclude = JpaRepositoriesAutoConfiguration.class)
 //@ComponentScan({"com.veterinario.demo.service"})
@@ -38,8 +38,8 @@ import javax.annotation.Resource;
 
 //@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class})
 //@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, XADataSourceAutoConfiguration.class})
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+//@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 //@EnableAutoConfiguration
 public class DemoApplication  implements CommandLineRunner {
 
