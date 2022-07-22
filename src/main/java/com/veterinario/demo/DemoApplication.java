@@ -14,12 +14,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.annotation.Resource;
 
-@SpringBootApplication
+//@SpringBootApplication
 //@EnableJpaRepositories(basePackages = "com.veterinario.demo.repository.AnimalRepository", entityManagerFactoryRef = "sessionFactory")
 
 //@ComponentScan(basePackages = {"com.veterinario"})
@@ -44,6 +45,8 @@ import javax.annotation.Resource;
 //@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 //@EnableAutoConfiguration
+@SpringBootApplication(scanBasePackages = {"service"} , exclude = {JpaRepositoriesAutoConfiguration.class})
+@EnableTransactionManagement
 public class DemoApplication  implements CommandLineRunner {
 
 	//@Resource
