@@ -16,7 +16,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.annotation.Resource;
 
-@SpringBootApplication
+//@SpringBootApplication
 //@SpringBootApplication(exclude = JpaRepositoriesAutoConfiguration.class)
 
 //@SpringBootApplication(scanBasePackages = {"boot.registration"} , exclude = {JpaRepositoriesAutoConfiguration.class})
@@ -25,7 +25,7 @@ import javax.annotation.Resource;
 //@SpringBootApplication(scanBasePackages = {"boot.registration"} , exclude = {JpaRepositoriesAutoConfiguration.class})
 //@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class})
 //@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, XADataSourceAutoConfiguration.class})
-//@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 @EnableAutoConfiguration
 public class DemoApplication  implements CommandLineRunner {
