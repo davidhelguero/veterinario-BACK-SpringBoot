@@ -11,23 +11,33 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerA
 import org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.annotation.Resource;
 
 //@SpringBootApplication
+
+@SpringBootApplication(scanBasePackages = {"com"})
+
+//@SpringBootApplication(scanBasePackages = {"com.service"} , exclude = {JpaRepositoriesAutoConfiguration.class})
+
 //@SpringBootApplication(exclude = JpaRepositoriesAutoConfiguration.class)
+//@ComponentScan({"com.veterinario.demo.service"})
+//@EnableJpaRepositories("com.veterinario.demo.repository.AnimalRepository")
 
 //@SpringBootApplication(scanBasePackages = {"boot.registration"} , exclude = {JpaRepositoriesAutoConfiguration.class})
 //@ComponentScan({"com.veterinario.demo.service"})
 
 //@SpringBootApplication(scanBasePackages = {"boot.registration"} , exclude = {JpaRepositoriesAutoConfiguration.class})
+
+//@SpringBootApplication(scanBasePackages = {"boot.registration"} , exclude = {JpaRepositoriesAutoConfiguration.class})
 //@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class})
 //@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, XADataSourceAutoConfiguration.class})
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
+//@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
-@EnableAutoConfiguration
+//@EnableAutoConfiguration
 public class DemoApplication  implements CommandLineRunner {
 
 	@Resource
