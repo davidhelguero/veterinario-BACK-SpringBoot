@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration;
@@ -17,9 +18,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.annotation.Resource;
 
-//@SpringBootApplication
+@SpringBootApplication
 
-@SpringBootApplication(scanBasePackages = {"com"})
+@ComponentScan({"com.veterinario"})
+@EntityScan("com.veterinario")
+@EnableJpaRepositories("com.veterinario.demo.repository")
 
 //@SpringBootApplication(scanBasePackages = {"com.service"} , exclude = {JpaRepositoriesAutoConfiguration.class})
 
