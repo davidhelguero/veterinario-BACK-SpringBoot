@@ -14,4 +14,6 @@ public interface HistorialMedicoService {
     void editHistorialMedico(HistorialMedicoRequestDto dto, Integer id);
 
     void deleteHistorialMedico(Integer id);
+
+    HistorialMedicoResponseDto getHistorialMedicosByIdResponse(Integer id);
 }

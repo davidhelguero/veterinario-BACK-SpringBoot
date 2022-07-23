@@ -18,4 +18,5 @@ public interface AnimalService {
 
     Animal getAnimalById(Integer id);
 
+    AnimalResponseDto getAnimalByIdResponse(Integer id);
 }

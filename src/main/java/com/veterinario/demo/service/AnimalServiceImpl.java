@@ -3,7 +3,6 @@ package com.veterinario.demo.service;
 import com.veterinario.demo.constants.EstadoAnimal;
 import com.veterinario.demo.dto.AnimalRequestDto;
 import com.veterinario.demo.dto.AnimalResponseDto;
-import com.veterinario.demo.dto.TipoAnimalResponseDto;
 import com.veterinario.demo.entity.Animal;
 import com.veterinario.demo.entity.Propietario;
 import com.veterinario.demo.entity.TipoAnimal;
@@ -81,5 +80,11 @@ public class AnimalServiceImpl implements AnimalService{
         if(!animal.isPresent())
             throw new NullPointerException("El animal no existe");
         return animal.get();
+    }
+
+    @Override
+    public AnimalResponseDto getAnimalByIdResponse(Integer id) {
+        Animal animal = getAnimalById(id);
+        return modelMapper.map(animal, AnimalResponseDto.class);
     }
 }
