@@ -25,7 +25,7 @@ public class TipoAnimalServiceImpl implements TipoAnimalService{
 
     @Override
     public List<TipoAnimalResponseDto> getTiposAnimales() {
-        List<TipoAnimal> listTiposAnimales = tipoAnimalRepository.findAll();
+        List<TipoAnimal> listTiposAnimales = tipoAnimalRepository.findTipoAnimalByEstado(true);
 
         return listTiposAnimales.stream().parallel()
                 .map(tipoAnimal -> modelMapper.map(tipoAnimal, TipoAnimalResponseDto.class))

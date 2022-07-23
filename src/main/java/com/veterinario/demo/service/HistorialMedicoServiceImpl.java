@@ -49,7 +49,7 @@ public class HistorialMedicoServiceImpl implements HistorialMedicoService{
 
     @Override
     public List<HistorialMedicoResponseDto> getHistorialesMedicos() {
-        List<HistorialMedico> historialesMedicos = historialMedicoRepository.findAll();
+        List<HistorialMedico> historialesMedicos = historialMedicoRepository.findHistorialMedicoByEstado(true);
 
         return historialesMedicos.stream().parallel()
                 .map(historialMedico -> modelMapper.map(historialMedico, HistorialMedicoResponseDto.class))
