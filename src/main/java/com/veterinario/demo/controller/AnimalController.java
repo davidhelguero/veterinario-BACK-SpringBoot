@@ -40,4 +40,9 @@ public class AnimalController {
 
     @PostMapping("/animal/edit")
     public void editAnimal(@Valid @RequestBody AnimalRequestDto requestDto, @RequestParam Integer id) {animalService.editAnimal(requestDto, id);}
+
+    @GetMapping("/animal/{id}")
+    public AnimalResponseDto getAnimalById(@PathVariable("id") Integer id){
+        return animalService.getAnimalByIdResponse(id);
+    }
 }

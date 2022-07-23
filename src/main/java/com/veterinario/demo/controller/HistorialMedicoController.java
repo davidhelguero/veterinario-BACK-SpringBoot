@@ -42,4 +42,9 @@ public class HistorialMedicoController {
     void deleteHistorialMedico(@PathVariable("id") Integer id){
         historialMedicoService.deleteHistorialMedico(id);
     }
+
+    @GetMapping("/historialMedico/{id}")
+    public HistorialMedicoResponseDto getHistorialMedicoById(@PathVariable("id") Integer id){
+        return historialMedicoService.getHistorialMedicosByIdResponse(id);
+    }
 }

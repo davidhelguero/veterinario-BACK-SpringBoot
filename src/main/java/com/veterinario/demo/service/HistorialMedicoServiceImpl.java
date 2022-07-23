@@ -1,5 +1,6 @@
 package com.veterinario.demo.service;
 
+import com.veterinario.demo.dto.AnimalResponseDto;
 import com.veterinario.demo.dto.HistorialMedicoRequestDto;
 import com.veterinario.demo.dto.HistorialMedicoResponseDto;
 import com.veterinario.demo.entity.Animal;
@@ -74,6 +75,12 @@ public class HistorialMedicoServiceImpl implements HistorialMedicoService{
         HistorialMedico historialMedico = getHistorialMedicoById(id);
         historialMedico.setEstado(false);
         historialMedicoRepository.save(historialMedico);
+    }
+
+    @Override
+    public HistorialMedicoResponseDto getHistorialMedicosByIdResponse(Integer id) {
+        HistorialMedico historialMedico = getHistorialMedicoById(id);
+        return modelMapper.map(historialMedico, HistorialMedicoResponseDto.class);
     }
 
     public HistorialMedico getHistorialMedicoById(Integer id){
