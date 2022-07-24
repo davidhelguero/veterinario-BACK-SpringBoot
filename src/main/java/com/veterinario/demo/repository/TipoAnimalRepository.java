@@ -14,4 +14,7 @@ public interface TipoAnimalRepository extends JpaRepository<TipoAnimal,Integer> 
     @Query("SELECT a FROM TipoAnimal a WHERE a.estado=:estado")
     List<TipoAnimal> findTipoAnimalByEstado(boolean estado);
 
+    @Query("SELECT count(a)>0 from TipoAnimal a where a.descripcion=:descripcion")
+    boolean existsByDescripcion(String descripcion);
+
 }
