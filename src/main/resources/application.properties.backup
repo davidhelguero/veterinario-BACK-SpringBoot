@@ -1,6 +1,6 @@
-spring.datasource.url=jdbc:mysql://localhost:3306/veterinario?useSSL=false
-spring.datasource.username=
-spring.datasource.password=
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://uystlhkfv6jfl9ov:pNHc07ppslG1pMR94KSn@blainmpxpdzpdvknrb87-mysql.services.clever-cloud.com:3306/blainmpxpdzpdvknrb87
+spring.datasource.username=uystlhkfv6jfl9ov
+spring.datasource.password=pNHc07ppslG1pMR94KSn
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
 spring.jpa.hibernate.ddl-auto=update
