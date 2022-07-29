@@ -33,7 +33,7 @@ public class AnimalServiceImpl implements AnimalService{
 
     @Override
     public List<AnimalResponseDto> getAnimales() {
-        List<Animal> listAnimales = animalRepository.findAll();
+        List<Animal> listAnimales = animalRepository.findAnimalByEstado(EstadoAnimal.ACTIVO);
 
         return listAnimales.stream().parallel()
                 .map(animal -> modelMapper.map(animal, AnimalResponseDto.class))

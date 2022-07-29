@@ -15,5 +15,5 @@ import javax.validation.constraints.NotEmpty;
 @JsonNaming
 public class TipoAnimalRequestDto {
     @NotEmpty(message = "Por favor ingrese el tipo de Animal")
-    private String descripción;
+    private String descripcion;
 }
