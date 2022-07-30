@@ -45,8 +45,9 @@ import javax.annotation.Resource;
 //@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 //@EnableAutoConfiguration
-@SpringBootApplication(scanBasePackages = {"service"} , exclude = {DataSourceAutoConfiguration.class, JpaRepositoriesAutoConfiguration.class})
-@EnableTransactionManagement
+//@SpringBootApplication(scanBasePackages = {"service"} , exclude = {DataSourceAutoConfiguration.class, JpaRepositoriesAutoConfiguration.class})
+//@EnableTransactionManagement
+@SpringBootApplication
 public class DemoApplication  implements CommandLineRunner {
 
 	//@Resource
