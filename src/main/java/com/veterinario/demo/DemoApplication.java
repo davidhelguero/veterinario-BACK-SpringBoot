@@ -42,7 +42,9 @@ import javax.annotation.Resource;
 
 //@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class})
 //@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, XADataSourceAutoConfiguration.class})
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+//@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@SpringBootApplication(scanBasePackages = {"test"} , exclude = JpaRepositoriesAutoConfiguration.class)
+@EnableTransactionManagement
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 //@EnableAutoConfiguration
 //@SpringBootApplication(scanBasePackages = {"service"} , exclude = {DataSourceAutoConfiguration.class, JpaRepositoriesAutoConfiguration.class})

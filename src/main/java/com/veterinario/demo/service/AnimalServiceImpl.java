@@ -7,6 +7,9 @@ import com.veterinario.demo.entity.Animal;
 import com.veterinario.demo.entity.Propietario;
 import com.veterinario.demo.entity.TipoAnimal;
 import com.veterinario.demo.repository.AnimalRepository;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +20,16 @@ import java.util.stream.Collectors;
 
 @Service
 public class AnimalServiceImpl implements AnimalService{
+    //@Autowired
+    private AnimalRepository animalRepository;
+    //@Autowired
+    private ModelMapper modelMapper;
+    //@Autowired
+    private TipoAnimalService tipoAnimalService;
+    //@Autowired
+    private PropietarioService propietarioService;
 
-    private final AnimalRepository animalRepository;
-    private final ModelMapper modelMapper;
-    private final TipoAnimalService tipoAnimalService;
-    private final PropietarioService propietarioService;
+    //public AnimalServiceImpl(){};
 
     @Autowired
     public AnimalServiceImpl(AnimalRepository animalRepository, ModelMapper modelMapper, TipoAnimalService tipoAnimalService, PropietarioService propietarioService){
