@@ -42,12 +42,12 @@ import javax.annotation.Resource;
 
 //@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class})
 //@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, XADataSourceAutoConfiguration.class})
-//@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 //@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 //@EnableAutoConfiguration
 //@SpringBootApplication(scanBasePackages = {"service"} , exclude = {DataSourceAutoConfiguration.class, JpaRepositoriesAutoConfiguration.class})
 //@EnableTransactionManagement
-@SpringBootApplication
+//@SpringBootApplication
 public class DemoApplication  implements CommandLineRunner {
 
 	//@Resource
