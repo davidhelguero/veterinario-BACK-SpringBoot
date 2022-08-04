@@ -21,13 +21,13 @@ import java.util.stream.Collectors;
 @Service
 public class AnimalServiceImpl implements AnimalService{
     //@Autowired
-    private AnimalRepository animalRepository;
+    private final AnimalRepository animalRepository;
     //@Autowired
-    private ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
     //@Autowired
-    private TipoAnimalService tipoAnimalService;
+    private final TipoAnimalService tipoAnimalService;
     //@Autowired
-    private PropietarioService propietarioService;
+    private final PropietarioService propietarioService;
 
     //public AnimalServiceImpl(){};
 
