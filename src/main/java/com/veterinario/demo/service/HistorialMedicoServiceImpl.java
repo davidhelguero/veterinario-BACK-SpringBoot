@@ -1,14 +1,11 @@
 package com.veterinario.demo.service;
 
-import com.veterinario.demo.dto.AnimalResponseDto;
 import com.veterinario.demo.dto.HistorialMedicoRequestDto;
 import com.veterinario.demo.dto.HistorialMedicoResponseDto;
 import com.veterinario.demo.entity.Animal;
 import com.veterinario.demo.entity.HistorialMedico;
 import com.veterinario.demo.entity.Veterinario;
 import com.veterinario.demo.repository.HistorialMedicoRepository;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,16 +17,10 @@ import java.util.stream.Collectors;
 
 @Service
 public class HistorialMedicoServiceImpl implements HistorialMedicoService{
-    //@Autowired
     private final ModelMapper modelMapper;
-    //@Autowired
     private final HistorialMedicoRepository historialMedicoRepository;
-    //@Autowired
     private final VeterinarioService veterinarioService;
-    //@Autowired
     private final AnimalService animalService;
-
-    //public HistorialMedicoServiceImpl(){}
 
     @Autowired
     public HistorialMedicoServiceImpl(ModelMapper modelMapper, HistorialMedicoRepository historialMedicoRepository, VeterinarioService veterinarioService, AnimalService animalService) {

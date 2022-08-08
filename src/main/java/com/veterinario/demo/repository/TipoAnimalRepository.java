@@ -1,6 +1,5 @@
 package com.veterinario.demo.repository;
 
-import com.veterinario.demo.dto.TipoAnimalResponseDto;
 import com.veterinario.demo.entity.TipoAnimal;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

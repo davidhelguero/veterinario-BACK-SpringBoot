@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 @Data
 @NoArgsConstructor
@@ -19,7 +20,9 @@ public class VeterinarioRequestDto {
     @NotEmpty(message = "Por favor ingrese un apellido")
     private String apellido;
     @NotEmpty(message = "Por favor ingrese un documento")
+    @Pattern(regexp = "^[0-9]{7,8}$", message = "Ingrese el dni sin puntos")
     private String documento;
     @NotEmpty(message = "Por favor ingrese una matricula")
+    @Pattern(regexp = "^[0-9]{5}$", message = "La matricula contiene 5 dígitos")
     private String matricula;
 }

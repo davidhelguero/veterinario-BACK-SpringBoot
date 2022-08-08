@@ -1,9 +1,7 @@
 package com.veterinario.demo.controller;
 
-import com.veterinario.demo.dto.AnimalRequestDto;
 import com.veterinario.demo.dto.TipoAnimalRequestDto;
 import com.veterinario.demo.dto.TipoAnimalResponseDto;
-import com.veterinario.demo.entity.TipoAnimal;
 import com.veterinario.demo.service.TipoAnimalService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

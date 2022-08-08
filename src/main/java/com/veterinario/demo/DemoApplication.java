@@ -1,68 +1,13 @@
 package com.veterinario.demo;
 
-import com.veterinario.demo.service.FileService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
-import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration;
-import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import javax.annotation.Resource;
-
-//@SpringBootApplication
-//@EnableJpaRepositories(basePackages = "com.veterinario.demo.repository.AnimalRepository", entityManagerFactoryRef = "sessionFactory")
-
-//@ComponentScan(basePackages = {"com.veterinario"})
-
-
-//@SpringBootApplication(scanBasePackages = {"service"} , exclude = {JpaRepositoriesAutoConfiguration.class})
-//@SpringBootApplication(scanBasePackages = {"service"})
-//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class, JpaRepositoriesAutoConfiguration.class})
-
-
-//@SpringBootApplication(exclude = JpaRepositoriesAutoConfiguration.class)
-//@ComponentScan({"com.veterinario.demo.service"})
-//@EnableJpaRepositories("com.veterinario.demo.repository.AnimalRepository")
-
-//@SpringBootApplication(scanBasePackages = {"boot.registration"} , exclude = {JpaRepositoriesAutoConfiguration.class})
-//@ComponentScan({"com.veterinario.demo.service"})
-
-//@SpringBootApplication(scanBasePackages = {"boot.registration"} , exclude = {JpaRepositoriesAutoConfiguration.class})
-
-//@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class})
-//@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, XADataSourceAutoConfiguration.class})
-//@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-//@SpringBootApplication(scanBasePackages = {"test"} , exclude = {DataSourceAutoConfiguration.class, JpaRepositoriesAutoConfiguration.class})
-//@EnableTransactionManagement
-//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
-//@EnableAutoConfiguration
-//@SpringBootApplication(scanBasePackages = {"service"} , exclude = {DataSourceAutoConfiguration.class, JpaRepositoriesAutoConfiguration.class})
-//@EnableTransactionManagement
 @SpringBootApplication
-//@ConditionalOnBean(types: javax.sql.DataSource; SearchStrategy: all) did not find any beans of type javax.sql.DataSource (OnBeanCondition)
-//@ConditionalOnClass found required class 'org.springframework.data.jpa.repository.JpaRepository' (OnClassCondition)
-
-
-//@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, JpaRepositoriesAutoConfiguration.class})
-//@EnableTransactionManagement
-//@ComponentScan("AnimalServiceImpl")
-//@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class})
-//@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, WebMvcAutoConfiguration.class})
-
 public class DemoApplication  implements CommandLineRunner {
 
 	//@Resource
