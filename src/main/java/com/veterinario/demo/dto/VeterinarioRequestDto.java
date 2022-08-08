@@ -20,7 +20,7 @@ public class VeterinarioRequestDto {
     @NotEmpty(message = "Por favor ingrese un apellido")
     private String apellido;
     @NotEmpty(message = "Por favor ingrese un documento")
-    @Pattern(regexp = "^[0-9]{7,8}$", message = "Ingrese el dni sin puntos")
+    @Pattern(regexp = "^[0-9]{7,8}$", message = "Ingrese el dni sin puntos. Recuerde que tiene 7 u 8 dígitos")
     private String documento;
     @NotEmpty(message = "Por favor ingrese una matricula")
     @Pattern(regexp = "^[0-9]{5}$", message = "La matricula contiene 5 dígitos")
