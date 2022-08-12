@@ -23,7 +23,8 @@ public class PropietarioRequestDto {
     @Pattern(regexp = "^[0-9]{7,8}$", message = "Ingrese el dni sin puntos. Recuerde que tiene 7 u 8 dígitos")
     private String documento;
     @NotEmpty(message = "Por favor ingrese un correo")
-    @Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "Formato de correo inválido")
+    /**  El pattern del correo se esta validando en el front  */
+    //@Pattern(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "Formato de correo inválido")
     private String correo;
     @NotEmpty(message = "Por favor ingrese un teléfono")
     @Pattern(regexp = "^[0-9]{10}$", message = "Debe contener 10 dígitos")
